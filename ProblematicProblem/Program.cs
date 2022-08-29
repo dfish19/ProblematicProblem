@@ -22,6 +22,7 @@ namespace ProblematicProblem
             Random rng = new Random();
             {
                 Console.Write("Hello, welcome to the random activity generator! \nWould you like to generate a random activity? yes/no: ");
+                bool cont = (Console.ReadLine() == "yes") ? true: false;
                 var userInput = (Console.ReadLine());
                 Console.WriteLine();
                 Console.Write("We are going to need your information first! What is your name? ");
@@ -31,7 +32,7 @@ namespace ProblematicProblem
                 var userAge = Console.ReadLine();
                 Console.WriteLine();
                 Console.Write("Would you like to see the current list of activities? Sure/No thanks: ");
-                bool seeList = bool.Parse(Console.ReadLine());
+                bool seeList = (Console.ReadLine() == "sure") ? true: false;
                 if (seeList)
                 {
                     foreach (string activity in activities)
@@ -41,7 +42,7 @@ namespace ProblematicProblem
                     }
                     Console.WriteLine();
                     Console.Write("Would you like to add any activities before we generate one? yes/no: ");
-                    bool addToList = bool.Parse(Console.ReadLine());
+                    bool addToList = (Console.ReadLine() == "no") ? true : false;
                     Console.WriteLine();
                     while (addToList)
                     {
@@ -55,7 +56,7 @@ namespace ProblematicProblem
                         }
                         Console.WriteLine();
                         Console.WriteLine("Would you like to add more? yes/no: ");
-                        string addToList1 = Console.ReadLine();
+                        addToList = (Console.ReadLine()== "yes") ? false : true;
                     }
                 }
 
@@ -88,7 +89,7 @@ namespace ProblematicProblem
                     Console.Write($"Ah got it! {randomActivity}, your random activity is: {userName}! " +
                         $"Is this ok or do you want to grab another activity? Keep/Redo: ");
                     Console.WriteLine();
-                    bool cont = bool.Parse(Console.ReadLine());
+                    cont = (Console.ReadLine() == "yes") ? false : true;
                 }
             }
         }
